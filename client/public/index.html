@@ -5,14 +5,16 @@
     <title>Bucket List</title>
     <script type="text/javascript" src="js/bundle.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Pridi" rel="stylesheet">
   </head>
   <body>
+    <img src="https://122985-351824-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2016/04/The-Bucket-List-Logo.jpg" alt="Bucket List" class='logo'>
     <form id="bucketlist-form" action="index.html" method="post">
       <label for="activity">Activity</label>
-      <input type="text" name="activity" id="activity" value="" required>
+      <input required type="text" name="activity" id="activity" value=""  maxlength=30>
 
       <label for="location">Location</label>
-      <input type="text" name="location" id="location" value="" required>
+      <input maxlength=30 type="text" name="location" id="location" value="" required>
 
       <input type="submit" name="submit" id="submit" value="Save Item">
     </form>

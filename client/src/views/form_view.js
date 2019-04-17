@@ -8,6 +8,7 @@ FormView.prototype.bindEvents = function() {
   this.form.addEventListener('submit', (evt)=>{
     evt.preventDefault();
     this.handleSubmit(evt);
+    this.form.reset();
   });
 };
 
