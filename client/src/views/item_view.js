@@ -29,6 +29,15 @@ ItemView.prototype.render = function() {
   deleteButton.addEventListener('click', (evt) => {
     PubSub.publish('ItemView:item-deleted', evt.target.value);
   });
+
+  const completeButton = document.createElement('button');
+  completeButton.textContent = 'Mark complete';
+  completeButton.value = this.data._id;
+  this.container.appendChild(completeButton);
+
+  completeButton.addEventListener('click', (evt) => {
+    PubSub.publish('ItemView:item-completed', evt.target.value);
+  });
 };
 
 

@@ -25,6 +25,13 @@ BucketList.prototype.bindEvents = function () {
         PubSub.publish('BucketList:data-ready', data);
       });
   });
+
+  PubSub.subscribe('ItemView:item-completed', (evt) => {
+    this.request.put(evt.detail, {"status": "Complete"})
+      .then( (data) => {
+        PubSub.publish('BucketList:data-ready', data);
+      });
+  });
 };
 
 module.exports = BucketList;
