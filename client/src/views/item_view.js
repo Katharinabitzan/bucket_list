@@ -1,3 +1,5 @@
+const PubSub = require('../helpers/pub_sub.js')
+
 const ItemView = function (container, data) {
   this.container = container;
   this.data = data;
@@ -18,6 +20,15 @@ ItemView.prototype.render = function() {
   const status = document.createElement('li');
   status.textContent = this.data.status;
   list.appendChild(status);
+
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'Delete';
+  deleteButton.value = this.data._id;
+  this.container.appendChild(deleteButton);
+
+  deleteButton.addEventListener('click', (evt) => {
+    PubSub.publish('ItemView:item-deleted', evt.target.value);
+  });
 };
 
 

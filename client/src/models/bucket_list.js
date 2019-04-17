@@ -19,6 +19,12 @@ BucketList.prototype.bindEvents = function () {
         PubSub.publish('BucketList:data-ready', data);
       });
   });
+  PubSub.subscribe('ItemView:item-deleted', (evt) => {
+    this.request.delete(evt.detail)
+      .then( (data) => {
+        PubSub.publish('BucketList:data-ready', data);
+      });
+  });
 };
 
 module.exports = BucketList;
