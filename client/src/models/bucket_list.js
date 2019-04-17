@@ -12,4 +12,13 @@ BucketList.prototype.getData = function () {
   });
 };
 
+BucketList.prototype.bindEvents = function () {
+  PubSub.subscribe('FormView:form-submitted', (evt) => {
+    this.request.post(evt.detail)
+      .then( (data) => {
+        PubSub.publish('BucketList:data-ready', data);
+      });
+  });
+};
+
 module.exports = BucketList;
